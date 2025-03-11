@@ -65,6 +65,7 @@ export class PostalCodeSearch {
     }
 
     async checkSingleResult(street: string, locality: string, code: string) {
+        await expect(this.page.getByRole('heading', { name: 'Results' })).toBeVisible();
         await expect(this.searchResult).toBeVisible();
         const resultStreet = this.searchResult.locator('h4').first();
         const resultLocality = this.searchResult.locator('h4').last();
